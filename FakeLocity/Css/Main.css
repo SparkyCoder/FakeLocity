@@ -1,0 +1,22 @@
+﻿.well-height{
+  height: 200px;
+  overflow:auto;
+}
+
+.well-height-large{
+  height: 400px;
+  overflow:auto;
+}
+
+.small-margin{
+  margin-top: 5px;
+}
+
+.chart {
+  height: 400;
+  width: 800;
+}
+
+.highlight{
+  background: gray;
+}

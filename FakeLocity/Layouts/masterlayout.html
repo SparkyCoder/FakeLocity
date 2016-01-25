@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="text-center"> FakeLocity </h1>
+  </div>
+  <div class="row">
+     <div class="col-sm-5">
+       <h3 class="text-center">Current Employees</h3>
+     </div>
+     <div class="col-sm-2"></div>
+     <div class="col-sm-5">
+       <h3 class="text-center">Add New Employee</h3>
+     </div>
+   </div>
+  <div class="row">
+     <div class="col-sm-5 well well-height">
+       <list-directive employees="employees" selectedemployee="selectedemployee"></list-directive>﻿
+    </div>
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-5 well  well-height">
+      <add-employee-directive employees="employees"></add-employee-directive>
+    </div>
+      </div>
+      <div class="row" ng-show="selectedemployee.ID">
+        <div class="col-sm-12">
+          <h3 class="text-center">Paryoll Details</h3>
+        </div>
+      </div>
+      <div class="row well well-height-large" ng-show="selectedemployee.ID">
+        <div class="col-sm-12">
+            <payroll-details employees="employees" selectedemployee="selectedemployee"></payroll-details>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-sm-4">
+<label>Name: </label>
+</div>
+<div class="col-sm-4">
+  <input type='text' ng-model="employeeName">
+</div>
+</div>
+<div class="row">
+<div class="col-sm-12">
+  <font color="red" ng-show="employeeError">Please Enter A Name First</font>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+<input type="button" ng-click="addNewEmployee()" value="Submit">
+</div>
+</div>
+<br>
+<div class="row">
+  <div class="col-sm-12 pull-right">
+<input type="button" ng-hide="showNewDependentForm" ng-click="showNewDependentForm = true" value="Add New Dependent">
+</div>
+</div>
+<div class="row" ng-show="showNewDependentForm">
+  <div class="col-sm-4">
+      <label>Dependent Name: </label>
+  </div>
+  <div class="col-sm-4">
+      <input type='text' ng-model="dependentName">
+  </div>
+  <div class="col-sm-12">
+    <font color="red" ng-show="dependentError">Please Enter A Name First</font>
+  </div>
+</div>
+<div class="row" ng-show="showNewDependentForm">
+  <div class="col-sm-12 pull-right">
+  <input type="button" ng-click="addDependent()" value="Add Dependent"
+</div>
+</div>

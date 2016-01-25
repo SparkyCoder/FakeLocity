@@ -1,0 +1,10 @@
+  <div ng-repeat="employee in employees">
+    <div class="col-sm-12 small-margin"" ng-click="selectEmployee(employee)" ng-class="{'highlight': employee.ID === selectedemployee.ID}">
+    <div class="col-sm-6" class="text-left">
+    <label ng-bind="employee.Name" ></label>
+  </div>
+  <div class="col-sm-6 class="text-right"">
+    <input class ="pull-right" type="button" ng-click="deleteEmployee(employee)"  value="Delete">
+  </div>
+  </div>
+  </div>
