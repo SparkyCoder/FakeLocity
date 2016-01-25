@@ -27,7 +27,7 @@
 
             A.CallTo(() => fakeCommandFactory.Create<AddEmployeeCommand>()).Returns(new AddEmployeeCommand(A.Fake<IDapperHub>(), A.Fake<ICommandFactory>()) { Execute = (employee, dependents) => {}});
 
-            employeeController.AddEmployee(new Employee(), new List<Dependents>());
+            employeeController.AddEmployee(new AddEmployeeParameters{NewEmployee = new Employee(), Dependents = new List<Dependents>()});
 
             A.CallTo(() => fakeCommandFactory.Create<AddEmployeeCommand>()).MustHaveHappened(Repeated.Exactly.Once);
         }
@@ -63,7 +63,7 @@
 
             A.CallTo(() => fakeQueryFactory.Create<GetPayrollDetailsQuery>()).Returns(new GetPayrollDetailsQuery(fakeQueryFactory, fakePayrolleHelper) {Execute = (i,n) => null});
 
-            employeeController.GetPayrollDetails(1, "zion");
+            employeeController.GetPayrollDetails(new GetPayrollDetailsParameters() {EmployeeID = 1, Name = "zion"});
 
             A.CallTo(() => fakeQueryFactory.Create<GetPayrollDetailsQuery>()).MustHaveHappened(Repeated.Exactly.Once);
         }
@@ -74,7 +74,7 @@
         {
             var employeeController = GetEmployeeController();
 
-            employeeController.AddEmployee(null, null);
+            employeeController.AddEmployee(new AddEmployeeParameters());
         }
 
         [TestMethod]
@@ -92,7 +92,7 @@
         {
             var employeeController = GetEmployeeController();
 
-            employeeController.GetPayrollDetails(new int(), "");
+            employeeController.GetPayrollDetails(new GetPayrollDetailsParameters());
         }
 
         private EmployeeController GetEmployeeController()

@@ -23,13 +23,12 @@ namespace FakeLocity.Tests.Models.Commands
 
             addDependentsComand.Execute(testDependents);
 
-            A.CallTo(() => fakeDapperHub.BeginTransaction()).MustHaveHappened(Repeated.Exactly.Once);
             A.CallTo(() => fakeDapperHub.Insert(A<Dependents>._)).MustHaveHappened(Repeated.Exactly.Times(testDependents.Count()));
-            A.CallTo(() => fakeDapperHub.CommitTransaction()).MustHaveHappened(Repeated.Exactly.Once);
         }
 
         private IEnumerable<Dependents> GetTestDependents()
         {
+
             return new List<Dependents>()
             {
                 new Dependents(),
